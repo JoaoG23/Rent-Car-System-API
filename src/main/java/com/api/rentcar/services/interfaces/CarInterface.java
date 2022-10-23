@@ -12,4 +12,5 @@ public interface CarInterface {
     public abstract Page<CarModel> findAll(Pageable pageable);
     public abstract Optional<CarModel> findById(Long id);
     public abstract boolean existsByLicensePlate(String licensePlate);
+    public abstract void delete(CarModel carModel);
 }

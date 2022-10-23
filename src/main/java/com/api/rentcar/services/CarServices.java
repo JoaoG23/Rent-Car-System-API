@@ -12,10 +12,9 @@ import com.api.rentcar.models.CarModel;
 import com.api.rentcar.repositories.CarRepository;
 import com.api.rentcar.services.interfaces.CarInterface;
 
-
 @Service
 public class CarServices implements CarInterface {
-    
+
     final CarRepository carRepository;
 
     public CarServices(CarRepository carRepository) {
@@ -37,11 +36,14 @@ public class CarServices implements CarInterface {
         // TODO Auto-generated method stub
         return Optional.empty();
     }
-
+    
     public boolean existsByLicensePlate(String licensePlate) {
         return carRepository.existsByLicensePlate(licensePlate);
     }
 
-
+    @Override
+    public void delete(CarModel carModel) {
+        carRepository.delete(carModel);
+    }
 
 }
