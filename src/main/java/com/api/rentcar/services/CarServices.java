@@ -33,8 +33,7 @@ public class CarServices implements CarInterface {
 
     @Override
     public Optional<CarModel> findById(Long id) {
-        // TODO Auto-generated method stub
-        return Optional.empty();
+        return carRepository.findById(id);
     }
     
     public boolean existsByLicensePlate(String licensePlate) {
