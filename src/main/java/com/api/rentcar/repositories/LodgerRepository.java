@@ -8,5 +8,7 @@ import com.api.rentcar.models.LodgerModel;
 
 @Repository
 public interface LodgerRepository extends JpaRepository<LodgerModel, Long>{
-
+    public boolean existsByNumberDocument(String numberDocument);
+    public boolean existsByPhoneNumber(String phoneNumber);
+    public boolean existsByEmail(String email);
 }

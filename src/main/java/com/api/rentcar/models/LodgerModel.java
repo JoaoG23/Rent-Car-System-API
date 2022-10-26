@@ -83,4 +83,10 @@ public class LodgerModel {
         this.numberDocument = numberDocument;
     }
 
+    @Override
+    public String toString() {
+        return "LodgerModel {id=" + id + ", name=" + name + ", address=" + address + ", phoneNumber=" + phoneNumber
+                + ", email=" + email + ", numberDocument=" + numberDocument + "}";
+    }
+
 }

@@ -74,7 +74,6 @@ public class CarController {
         
         Optional<CarModel> carModelOptional = carServices.findById(id);
 
-        System.out.println(carModelOptional);
         if (!carModelOptional.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("The Car not exist for to be updated");
         }
