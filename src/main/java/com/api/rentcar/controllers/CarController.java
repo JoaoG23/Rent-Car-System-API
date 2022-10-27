@@ -3,7 +3,6 @@ package com.api.rentcar.controllers;
 import java.util.Optional;
 
 import javax.validation.Valid;
-import javax.websocket.server.PathParam;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
@@ -100,7 +99,7 @@ public class CarController {
         }
 
         carServices.delete(carModelOptional.get());
-        return ResponseEntity.status(HttpStatus.OK).body("Car removed of success");
+        return ResponseEntity.status(HttpStatus.OK).body("Car removed with success");
         
     }
 }
