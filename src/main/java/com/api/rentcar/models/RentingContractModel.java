@@ -33,12 +33,12 @@ public class RentingContractModel {
 
     // Joins
     @ManyToOne
-    @JoinColumn(name = "code_lodger_id")
+    @JoinColumn(name = "codeLodgerId")
     LodgerModel lodger;
     
     
     @ManyToOne
-    @JoinColumn(name = "code_car_id")
+    @JoinColumn(name = "codeCarId")
     CarModel car;
 
 
