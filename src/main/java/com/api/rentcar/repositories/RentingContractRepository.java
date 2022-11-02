@@ -7,7 +7,7 @@ import com.api.rentcar.models.RentingContractModel;
 
 @Repository
 public interface RentingContractRepository extends JpaRepository<RentingContractModel, Long> {
-    public boolean existsByCodeLodgerId(Long codeLodgerId);
-    public boolean existsByCodeCarId(Long codeCarId);
+    // public boolean existsByCodeLodgerId(Long codeLodgerId);
+    // public boolean existsByCodeCarId(Long codeCarId);
 
 }

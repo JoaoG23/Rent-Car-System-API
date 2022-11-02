@@ -1,118 +1,76 @@
-package com.api.rentcar.models;
+package com.api.rentcar.dtos;
 
 import java.time.LocalDateTime;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
+import com.api.rentcar.models.CarModel;
+import com.api.rentcar.models.LodgerModel;
 
-@Entity
-@Table(name = "TB_RESTING_CONTRACTS")
-public class RentingContractModel {
+public class RentingContractDto {
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long idCodeContract;
-
-    @Column(nullable = false)
+    @NotBlank
     private LocalDateTime initialDateRent;
     
-    
-    @Column(nullable = false)
+    @NotBlank
     private LocalDateTime finalDateRent;
     
-    
-    @Column(nullable = false)
+    @NotBlank
     private LocalDateTime dateHappend;
 
-    // Joins
-    @ManyToOne(cascade = CascadeType.REMOVE )
-    @JoinColumn(name = "codeLodgerId")
-    LodgerModel lodger;
+    @NotBlank
+    private LodgerModel lodger;
     
-    
-    @ManyToOne(cascade = CascadeType.REMOVE )
-    @JoinColumn(name = "codeCarId")
-    CarModel car;
+    @NotBlank
+    private CarModel car;
 
-
-    @Column(nullable = true)
     private String observations;
 
-
-
-    // GET e SET
-    public Long getIdCodeContract() {
-        return idCodeContract;
-    }
-
-
-    public void setIdCodeContract(Long idCodeContract) {
-        this.idCodeContract = idCodeContract;
-    }
-
+    
 
     public LocalDateTime getInitialDateRent() {
         return initialDateRent;
     }
 
-
     public void setInitialDateRent(LocalDateTime initialDateRent) {
         this.initialDateRent = initialDateRent;
     }
-
 
     public LocalDateTime getFinalDateRent() {
         return finalDateRent;
     }
 
-
     public void setFinalDateRent(LocalDateTime finalDateRent) {
         this.finalDateRent = finalDateRent;
     }
-
 
     public LocalDateTime getDateHappend() {
         return dateHappend;
     }
 
-
     public void setDateHappend(LocalDateTime dateHappend) {
         this.dateHappend = dateHappend;
     }
-
 
     public LodgerModel getLodger() {
         return lodger;
     }
 
-
     public void setLodger(LodgerModel lodger) {
         this.lodger = lodger;
     }
-
 
     public CarModel getCar() {
         return car;
     }
 
-
     public void setCar(CarModel car) {
         this.car = car;
     }
 
-
     public String getObservations() {
         return observations;
     }
-
 
     public void setObservations(String observations) {
         this.observations = observations;
