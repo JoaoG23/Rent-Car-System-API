@@ -33,14 +33,14 @@ public class RentingContractModel {
     private LocalDateTime dateHappend;
 
     // Joins
-    @ManyToOne(cascade = CascadeType.REMOVE )
-    @JoinColumn(name = "codeLodgerId")
-    LodgerModel lodger;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "codeLodgerId", nullable = false)
+    private LodgerModel lodger;
     
     
-    @ManyToOne(cascade = CascadeType.REMOVE )
-    @JoinColumn(name = "codeCarId")
-    CarModel car;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "codeCarId", nullable = false)
+    private CarModel car;
 
 
     @Column(nullable = true)
