@@ -1,15 +1,20 @@
 package com.api.rentcar.models;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "TB_CARS")
+@Table(name = "tb_cars")
 public class CarModel {
     
     @Id
@@ -29,8 +34,9 @@ public class CarModel {
     
     @Column(nullable = false, length = 14)
     private String licensePlate;
-
-
+    
+    @Column(nullable = true)
+    private RentingContractModel rentingContractModel;
 
     // Get e Setter
     public Long getIdCodeCar() {
@@ -81,6 +87,4 @@ public class CarModel {
     public void setLicensePlate(String licensePlate) {
         this.licensePlate = licensePlate;
     }
-
-
 }

@@ -33,13 +33,15 @@ public class RentingContractModel {
     private LocalDateTime dateHappend;
 
     // Joins
+    @Id
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "codeLodgerId", nullable = false)
+    @JoinColumn(name = "codeLodgerId", nullable = false, referencedColumnName="id")
     private LodgerModel lodger;
     
     
+    @Id
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "codeCarId", nullable = false)
+    @JoinColumn(name = "codeCarId", nullable = false, referencedColumnName="id")
     private CarModel car;
 
 
@@ -47,6 +49,8 @@ public class RentingContractModel {
     private String observations;
 
 
+
+    
 
     // GET e SET
     public Long getIdCodeContract() {
