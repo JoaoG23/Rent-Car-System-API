@@ -39,18 +39,18 @@ public class RentingContractController {
         this.rentingContractServices = rentingContractServices;
     }
 
-    @PostMapping
-    public ResponseEntity<Object> createLodger(@RequestBody @Valid RentingContractDto rentingContractDto) {
+    // @PostMapping
+    // public ResponseEntity<Object> createLodger(@RequestBody @Valid RentingContractDto rentingContractDto) {
 
 
-        /// Existe Lodger com esse id
-        // Existe Car com esse id
+    //     /// Existe Lodger com esse id
+    //     // Existe Car com esse id
 
-        var rentingContractModel = new RentingContractModel();
+    //     var rentingContractModel = new RentingContractModel();
 
-        BeanUtils.copyProperties(rentingContractDto, rentingContractModel);
-        return ResponseEntity.status(HttpStatus.OK).body(rentingContractServices.save(rentingContractModel));
-    }
+    //     BeanUtils.copyProperties(rentingContractDto, rentingContractModel);
+    //     return ResponseEntity.status(HttpStatus.OK).body(rentingContractServices.save(rentingContractModel));
+    // }
 
     // @GetMapping
     // public ResponseEntity<Page<LodgerModel>> getAllLodger(@PageableDefault(page = 0, size = 5, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {

@@ -12,7 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
 @Entity
 @Table(name = "tb_cars")
 public class CarModel {
@@ -35,56 +34,57 @@ public class CarModel {
     @Column(nullable = false, length = 14)
     private String licensePlate;
     
-    @Column(nullable = true)
-    private RentingContractModel rentingContractModel;
+    @OneToMany(mappedBy = "tb_cars")
+    private Set<RentingContractModel> lodgers = new HashSet<>();
 
-    // Get e Setter
     public Long getIdCodeCar() {
         return idCodeCar;
     }
-
 
     public void setIdCodeCar(Long idCodeCar) {
         this.idCodeCar = idCodeCar;
     }
 
-
     public String getBrand() {
         return brand;
     }
-
 
     public void setBrand(String brand) {
         this.brand = brand;
     }
 
-
     public String getModel() {
         return model;
     }
-
 
     public void setModel(String model) {
         this.model = model;
     }
 
-
     public String getColor() {
         return color;
     }
-
 
     public void setColor(String color) {
         this.color = color;
     }
 
-
     public String getLicensePlate() {
         return licensePlate;
     }
 
-
     public void setLicensePlate(String licensePlate) {
         this.licensePlate = licensePlate;
     }
+
+    public Set<RentingContractModel> getLodgers() {
+        return lodgers;
+    }
+
+    public void setLodgers(Set<RentingContractModel> lodgers) {
+        this.lodgers = lodgers;
+    }
+
+    // Get e Setter
+
 }

@@ -1,8 +1,6 @@
-package com.api.rentcar.models;
 
 import java.time.LocalDateTime;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
 
 
 @Entity
@@ -33,16 +32,17 @@ public class RentingContractModel {
     private LocalDateTime dateHappend;
 
     // Joins
-    @Id
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "codeLodgerId", nullable = false, referencedColumnName="id")
-    private LodgerModel lodger;
-    
-    
-    @Id
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "codeCarId", nullable = false, referencedColumnName="id")
-    private CarModel car;
+
+
+    @ManyToOne
+    @JoinColumn(name = "car_id")
+    private CarModel cars;
+
+    @ManyToOne
+    @JoinColumn(name = "lodger_id")
+    private LodgerModel lodgers;
+
+
 
 
     @Column(nullable = true)
@@ -50,12 +50,12 @@ public class RentingContractModel {
 
 
 
-    
 
-    // GET e SET
     public Long getIdCodeContract() {
         return idCodeContract;
     }
+
+
 
 
     public void setIdCodeContract(Long idCodeContract) {
@@ -63,9 +63,13 @@ public class RentingContractModel {
     }
 
 
+
+
     public LocalDateTime getInitialDateRent() {
         return initialDateRent;
     }
+
+
 
 
     public void setInitialDateRent(LocalDateTime initialDateRent) {
@@ -73,9 +77,13 @@ public class RentingContractModel {
     }
 
 
+
+
     public LocalDateTime getFinalDateRent() {
         return finalDateRent;
     }
+
+
 
 
     public void setFinalDateRent(LocalDateTime finalDateRent) {
@@ -83,9 +91,13 @@ public class RentingContractModel {
     }
 
 
+
+
     public LocalDateTime getDateHappend() {
         return dateHappend;
     }
+
+
 
 
     public void setDateHappend(LocalDateTime dateHappend) {
@@ -93,24 +105,34 @@ public class RentingContractModel {
     }
 
 
-    public LodgerModel getLodger() {
-        return lodger;
+
+
+    public CarModel getCars() {
+        return cars;
     }
 
 
-    public void setLodger(LodgerModel lodger) {
-        this.lodger = lodger;
+
+
+    public void setCars(CarModel cars) {
+        this.cars = cars;
     }
 
 
-    public CarModel getCar() {
-        return car;
+
+
+    public LodgerModel getLodgers() {
+        return lodgers;
     }
 
 
-    public void setCar(CarModel car) {
-        this.car = car;
+
+
+    public void setLodgers(LodgerModel lodgers) {
+        this.lodgers = lodgers;
     }
+
+
 
 
     public String getObservations() {
@@ -118,7 +140,15 @@ public class RentingContractModel {
     }
 
 
+
+
     public void setObservations(String observations) {
         this.observations = observations;
     }
+
+
+
+    
+
+
 }
